@@ -1,0 +1,386 @@
+<title>World Of Objects - A Mythic JavaScript run</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="stylesheets/main.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|PT+Sans" rel="stylesheet">
+
+
+<div id="logo">
+    <img src="images/logo.png" alt="World Of Objects - A Mythic JavaScript run">
+</div>
+
+
+<div id="main">
+
+    <div class="explanations">
+
+
+        <div class="content" data-step="1">
+            <p class="l1">Nous avons 2 joueurs, Ash et Hugeen, qui ont chacun leurs propres caractéristiques.</p>
+
+            <p class="l4">La façon la plus simple de les représenter sous forme de code et de stocker leurs caractéristiques directement dans des variables tels qu'on peut les voir sur le code à droite.</p>
+
+            <p class="l10">Pour leur faire gagner des niveaux, on peut commencer par créer une fonction <strong>gainLevel</strong> qui ajoute <i>1</i> au niveau donné.</p>
+
+            <p class="l14">Puis redéfinir la valeur du niveau du joueur : <strong>player1level</strong></p>
+        </div>
+
+
+        <div class="content" data-step="2">
+            <p class="l4">Pour commencer tout doucement la transition, on peut d'abord regrouper les caractéristiques (également appellées "propriétées") des joueurs par le biais d'objets de données.</p>
+
+            <p class="l16">Il est alors possible de modifier une propriété directement sur l'objet.<br>Ici <strong>player1.level</strong> deviendra <i>2</i>.</p>
+        </div>
+
+
+        <div class="content" data-step="3">
+            <p class="l13">Pour aller un peu plus loin on modifie la fonction <strong>gainLevel</strong> pour qu'elle prenne non plus le niveau courant mais l'objet <strong>player</strong> pour que l'ont puisse modifier sa propriété level directement.</p>
+        </div>
+
+
+        <div class="content" data-step="4">
+            <p class="l9">Il est tout à fait possible d'affecter une fonction directement à un objet (autrement appellées méthodes).</p>
+
+            <p class="l13">Ici on créer une méthode <strong>gainLevel</strong> sur chaque joueur en prenant soin de modifier le niveau du bon joueur (<strong>player1</strong> ou <strong>player2</strong>).</p>
+
+            <p class="l19">Hm, mais tu as peut être remarqué qu'il y a une répétition : les 2 méthodes <strong>gainLevel</strong> sont quasiement identiques.<br>Voyons comment régler ce problème.</p>
+        </div>
+
+
+        <div class="content" data-step="5">
+            <p class="l14"><strong>this</strong> fait référence au à l'objet (ici <strong>player1</strong>).</p>
+
+            <p class="l17">Vu qu'on appelle <strong>this</strong> au lieu de <strong>player1</strong> ou <strong>player2</strong> dans la méthode, cette dernière peut être partagée entre les 2 objets</p>
+
+            <p class="l21">De manière générale, à l'intérieur d'une méthode, <strong>this</strong> représente l'objet sur lequel on exécute cette méthode. C'est ce qu'on appelle le <i>contexte d'exécution</i> de la méthode.</p>
+        </div>
+
+
+        <div class="content" data-step="6">
+            <p class="l13">Pour gagner en cohérence on va définir la méthode en dehors de l'objet <strong>player1</strong></p>
+
+            <p class="l17">avant de lui assigner</p>
+            <p class="l18">ainsi qu'à l'objet <strong>player2</strong></p>
+        </div>
+
+
+        <div class="content" data-step="7">
+            <p class="l5">Tu l'auras deviné, le <strong>constructor</strong> sert à construire un objet. Ici on ajoute la propriété <strong>level</strong> et la méthode <strong>gainLevel</strong>.</p>
+
+            <p class="l10">Tu peux constater qu'il y a un peu moins de répétitions dans le code.</p>
+
+            <p class="l18">Executer la fonction <strong>constructor</strong> avec <strong>player1</strong> ou <strong>player2</strong> va permettre de leur attribuer la propriété <strong>level</strong> et la méthode <strong>gainLevel</strong>.</p>
+        </div>
+
+
+        <div class="content" data-step="8">
+            <p class="l5">On peut même passer le nom du joueur directement dans les arguments du constructeur pour pouvoir lui assigner dynamiquement.</p>
+
+            <p class="l11">Nos objets sont maintenant vides lorsqu'on les initialisent.</p>
+
+            <p class="l14">Ils sont désormais définis entièrement via le constructeur.</p>
+        </div>
+
+
+        <div class="content" data-step="9">
+            <p class="l5">Nos objets sont donc vides à l'initialisation. JavaScript va s'occuper créer directement l'objet avant de le traiter dans le constructeur. A noter ici que <strong>player</strong> a été remplacé par <strong>this</strong>, faisant référence à l'objet fraîchement créé.</p>
+
+            <p class="l11">A condition de l'appeler avec le mot clé <strong>new</strong></p>
+        </div>
+
+
+        <div class="content" data-step="10">
+            <p class="l5">Mais il faut avouer que <strong>constructor</strong> c'est beaucoup trop générique comme nom. Sachant qu'il fabrique des players, renommons <strong>constructor</strong> en <strong>Player</strong> pour gagner en lisibilité et en cohérence.</p>
+
+            <p class="l11">Par convention les constructeurs d'objets prennent une majuscule à la première lettre pour les différencier des objets eux même.</p>
+        </div>
+
+
+        <div class="content" data-step="11">
+            <p class="l4">Et pour finir en beauté, les constructeurs peuvent avoir des prototypes.</p>
+
+            <p class="l7">Les prototypes sont appliqués directements sur les objets générés par ce dernier.</p>
+
+            <p class="l12">Comme player1 est généré via le constructeur Player et que Player à la méthode <strong>gainLevel</strong> sur son <i>prototype</i>.</p>
+
+            <p class="l16">Alors <strong>player1</strong> à accès à la méthode <strong>gainLevel</strong>.</p>
+        </div>
+
+
+        <div class="content" data-step="12">
+            <p class="l4">Félicitations ! Tu es arrivé au bout de cette introduction aux objets avec JavaScript.</p>
+
+
+            <p class="l10"><img src="images/achievement.png" alt="Achievement"></p>
+        </div>
+
+
+    </div>
+
+
+    <div class="code"></div>
+
+</div>
+
+
+<div id="ok">
+    <span>J'ai compris</span>
+</div>
+
+
+<div id="pagination"></div>
+
+
+<script type="text/template" id="page_button_template">
+    <div class="page_button"><span></span></div>
+</script>
+
+
+<script type="text/sample" data-step="1">
+var player1name  = 'Ash'
+var player1spec  = 'Havoc'
+var player1level = 1
+
+var player2name  = 'Hugeen'
+var player2spec  = 'Shadow'
+var player2level = 1
+
+
+function gainLevel (level) {
+    return level + 1
+}
+
+player1level = gainLevel(player1level)
+</script>
+
+
+<script type="text/sample" data-step="2">
+var player1 = {
+    name: 'Ash',
+    spec: 'Havoc',
+    level: 1
+}
+
+var player2 = {
+    name: 'Hugeen',
+    spec: 'Shadow',
+    level: 1
+}
+
+function gainLevel (level) {
+    return level + 1
+}
+
+player1.level = gainLevel(player1.level)
+</script>
+
+
+<script type="text/sample" data-step="3">
+var player1 = {
+    name: 'Ash',
+    spec: 'Havoc',
+    level: 1
+}
+
+var player2 = {
+    name: 'Hugeen',
+    spec: 'Shadow',
+    level: 1
+}
+
+function gainLevel (player) {
+    player.level += 1
+}
+
+gainLevel(player1)
+</script>
+
+
+<script type="text/sample" data-step="4">
+var player1 = {
+    name: 'Ash',
+    spec: 'Havoc',
+    level: 1
+}
+
+var player2 = {
+    name: 'Hugeen',
+    spec: 'Shadow',
+    level: 1
+}
+
+player1.gainLevel = function () {
+    player1.level += 1
+}
+
+player1.gainLevel()
+
+player2.gainLevel = function () {
+    player2.level += 1
+}
+</script>
+
+
+<script type="text/sample" data-step="5">
+var player1 = {
+    name: 'Ash',
+    spec: 'Havoc',
+    level: 1
+}
+
+var player2 = {
+    name: 'Hugeen',
+    spec: 'Shadow',
+    level: 1
+}
+
+player1.gainLevel = function () {
+    this.level += 1
+}
+
+
+player2.moveLeft = player1.moveLeft
+
+
+player1.gainLevel()
+
+player2.gainLevel()
+</script>
+
+
+<script type="text/sample" data-step="6">
+var player1 = {
+    name: 'Ash',
+    spec: 'Havoc',
+    level: 1
+}
+
+var player2 = {
+    name: 'Hugeen',
+    spec: 'Shadow',
+    level: 1
+}
+
+var gainLevel = function () {
+    this.level += 1
+}
+
+player1.gainLevel = gainLevel
+player2.gainLevel = gainLevel
+
+
+player1.gainLevel()
+player2.gainLevel()
+</script>
+
+
+<script type="text/sample" data-step="7">
+var gainLevel = function () {
+    this.level += 1
+}
+
+function constructor (player) {
+    player.level = 1
+    player.gainLevel = gainLevel
+}
+
+var player1 = {
+    name: 'Ash'
+}
+
+var player2 = {
+    name: 'Hugeen'
+}
+
+constructor(player1)
+constructor(player2)
+
+player1.gainLevel()
+player2.gainLevel()
+</script>
+
+
+<script type="text/sample" data-step="8">
+var gainLevel = function () {
+    this.level += 1
+}
+
+function constructor (player, name) {
+    player.name = name
+    player.level = 1
+    player.gainLevel = gainLevel
+}
+
+var player1 = {}
+var player2 = {}
+
+constructor(player1, 'Pierre')
+constructor(player2, 'Cyrille')
+
+player1.gainLevel()
+player2.gainLevel()
+</script>
+
+
+<script type="text/sample" data-step="9">
+var gainLevel = function () {
+    this.level += 1
+}
+
+function constructor (name) {
+    this.name = name // Attention à this !
+    this.level = 1
+    this.gainLevel = gainLevel
+}
+
+var player1 = new constructor('Pierre')
+var player2 = new constructor('Cyrille')
+
+player1.gainLevel()
+player2.gainLevel()
+</script>
+
+
+<script type="text/sample" data-step="10">
+var gainLevel = function () {
+    this.level += 1
+}
+
+function Player (name) {
+    this.name = name // Attention à this !
+    this.level = 1
+    this.gainLevel = gainLevel
+}
+
+var player1 = new Player('Pierre')
+var player2 = new Player('Cyrille')
+
+player1.gainLevel()
+player2.gainLevel()
+</script>
+
+
+<script type="text/sample" data-step="11">
+function Player (name) {
+    this.id = name
+    this.level = 1
+}
+
+
+Player.prototype.gainLevel = function () {
+    this.level += 1
+}
+
+
+var player1 = new Player('Pierre')
+var player2 = new Player('Cyrille')
+
+
+player1.gainLevel()
+player2.gainLevel()
+</script>
+
+
+<script data-main="scripts/main" src="toxilibs/extlibs/require.js"></script>
+
+

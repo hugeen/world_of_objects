@@ -1,0 +1,184 @@
+@import 'reset.css';
+@import 'code.css';
+
+body {
+    background: black;
+    height: 100vh;
+    font-size: 14px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+#logo {
+    width: 500px;
+    margin: 30px auto;
+}
+
+#main {
+    width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+#main:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+#ok {
+    width: 227px;
+    height: 53px;
+    background: url(../images/ok.png) 0 0 no-repeat;
+    margin: 0 auto;
+    color: #ffd100;
+    cursor: pointer;
+}
+
+#ok:hover {
+    background-position: 0 -53px;
+}
+
+#ok span {
+    text-align: center;
+    display: block;
+    padding-top: 17px;
+    font-size: 1.4em;
+    text-shadow: 1px 2px 0 black;
+}
+
+
+#pagination {
+    text-align: center;
+    margin: 1em;
+}
+
+.page_button {
+    display: inline-block;
+    width: 40px;
+    height: 38px;
+    background: url(../images/page-off.png) 0 0 no-repeat;
+    color: #807e80;
+    cursor: pointer;
+}
+
+
+.page_button:hover {
+    background-position: 0 -38px;
+}
+
+.page_button span {
+    text-align: center;
+    display: block;
+    padding-top: 12px;
+    font-size: 1.4em;
+    text-shadow: 1px 2px 0 black;
+}
+
+.page_button.active {
+    cursor: default;
+    background: url(../images/page-on.png) 0 0 no-repeat;
+    color: #ffd100;
+}
+
+.page_button.active:hover {
+    background-position: 0 0;
+}
+
+
+.explanations {
+    width: 350px;
+    height: 475px;
+    float: left;
+    background: url(../images/explanations.jpg) 0 0 no-repeat;
+}
+
+
+.explanations .content {
+    display: none;
+    position: relative;
+    left: 2em;
+    top: 2px;
+    height: calc(100% - 1em);
+    width: calc(100% - 3em);
+    overflow: auto;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.28);
+    text-align: left;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 18px;
+}
+
+.explanations .content p {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+
+.explanations .content p img {
+    max-width: 100%;
+}
+
+
+.explanations .content strong {
+    font-size: 1.1em;
+    text-shadow: 0 1px rgba(235, 202, 152, 0.45);
+    font-family: 'Anonymous Pro', monospace;
+    background: rgba(227, 219, 186, 0.75);
+    border-radius: 2px;
+}
+
+
+.explanations .content i {
+    text-shadow: 0 1px rgba(235, 202, 152, 0.45);
+    font-family: 'Anonymous Pro', monospace;
+    color: #ba2417;
+} 
+
+.explanations .content p.l1 {top: 18px;}
+.explanations .content p.l2 {top: calc(2 * 18px);}
+.explanations .content p.l3 {top: calc(3 * 18px);}
+.explanations .content p.l4 {top: calc(4 * 18px);}
+.explanations .content p.l5 {top: calc(5 * 18px);}
+.explanations .content p.l6 {top: calc(6 * 18px);}
+.explanations .content p.l7 {top: calc(7 * 18px);}
+.explanations .content p.l8 {top: calc(8 * 18px);}
+.explanations .content p.l9 {top: calc(9 * 18px);}
+.explanations .content p.l10 {top: calc(10 * 18px);}
+.explanations .content p.l11 {top: calc(11 * 18px);}
+.explanations .content p.l12 {top: calc(12 * 18px);}
+.explanations .content p.l13 {top: calc(13 * 18px);}
+.explanations .content p.l14 {top: calc(14 * 18px);}
+.explanations .content p.l15 {top: calc(15 * 18px);}
+.explanations .content p.l16 {top: calc(16 * 18px);}
+.explanations .content p.l17 {top: calc(17 * 18px);}
+.explanations .content p.l18 {top: calc(18 * 18px);}
+.explanations .content p.l19 {top: calc(19 * 18px);}
+.explanations .content p.l20 {top: calc(20 * 18px);}
+.explanations .content p.l21 {top: calc(21 * 18px);}
+.explanations .content p.l22 {top: calc(22 * 18px);}
+.explanations .content p.l23 {top: calc(23 * 18px);}
+.explanations .content p.l24 {top: calc(24 * 18px);}
+
+
+.code {
+    position: relative;
+    font-size: 0.95em;
+    width: 350px;
+    height: 475px;
+    float: left;
+    background: url(../images/code.jpg) 0 0 no-repeat;
+}
+
+
+.illidan {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 475px;
+    background: url(../images/illidan.png) 0 0 no-repeat;
+}
