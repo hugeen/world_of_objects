@@ -73,20 +73,21 @@ require([
 
 
     function displayCode (step) {
-        $('.code').html(javaScript(getCode(step).trim()))
+        $('.code').html(highlightJavaScript(getCode(step).trim()))
     }
+
 
     function getCode (step) {
         var $code = $('script[data-step="' + step + '"]')
         if ($code.length > 0) {
-            return $('script[data-step="' + step + '"]').text()
+            return $code.text()
         } else {
             return '<div class="illidan"></div>'
         }
     }
 
 
-    function javaScriptElement (source) {
+    function javaScriptCode (source) {
         return $('<pre><code class="language-javascript">' + source + '</code></pre>')
     }
 
@@ -97,11 +98,9 @@ require([
     }
 
 
-    function javaScript (source) {
-        return highlight(javaScriptElement(source))
+    function highlightJavaScript (source) {
+        return highlight(javaScriptCode(source))
     }
-
-
 
 
 })
